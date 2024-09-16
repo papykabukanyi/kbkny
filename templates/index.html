@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KBKNY Agency</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+</head>
+<body>
+
+  <div id="fullpage">
+    <!-- Page 1 -->
+    <div class="section" id="section1">
+      <div class="content" style="text-align: left;">
+        <h1 class="big-text">Unleash Your Business Potential with KBKNY Agency!</h1>
+      </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="section" id="section2">
+      <div class="content">
+        <h1>At KBKNY, we make your business look amazing and help it thrive online and offline!</h1>
+        <p>
+          Whether you need a stunning website, powerful marketing materials, or custom software, we’ve got your back.
+          Forget about the tech hassle, we handle it all so you can focus on what you do best: running your business!
+        </p>
+      </div>
+    </div>
+
+    <!-- Page 3 - Offers Section -->
+    <div class="section" id="section3">
+      <div class="content">
+        <div class="offer-list">
+          <div class="offer-item">
+            <div class="left">
+              <h1>Web Design</h1>
+            </div>
+            <div class="right">
+              <p>Craft stunning, responsive websites that captivate visitors and convert them into customers.</p>
+            </div>
+          </div>
+
+          <div class="offer-item">
+            <div class="left">
+              <h1>Marketing</h1>
+            </div>
+            <div class="right">
+              <p>Reach your target audience with powerful digital and offline marketing strategies.</p>
+            </div>
+          </div>
+
+          <div class="offer-item">
+            <div class="left">
+              <h1>Branding</h1>
+            </div>
+            <div class="right">
+              <p>Develop a strong, consistent brand identity that makes your business stand out.</p>
+            </div>
+          </div>
+
+          <div class="offer-item">
+            <div class="left">
+              <h1>Custom Software</h1>
+            </div>
+            <div class="right">
+              <p>Streamline your operations with tailor-made software solutions built to meet your specific needs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 4 - Contact Form -->
+    <div class="section" id="section4">
+      <div class="content">
+        <h1>Contact Me</h1>
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+        
+        <!-- Enlarged Floating Circular Object -->
+        <div class="floating-circle">
+          <img src="/static/img/stockimg.png" alt="Profile Picture">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
