@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const contactForm = document.getElementById('contactForm');
     contactForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+        event.preventDefault();  // Prevent the default form submission
 
         const formData = new FormData(contactForm);
         const jsonData = {};
@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             jsonData[key] = value;
         });
 
+        // Perform the fetch request
         fetch('/submit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -37,10 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             if (data.success) {
                 alert('Message sent successfully!');
-                contactForm.reset();
+                contactForm.reset();  // Reset the form after successful submission
             } else {
-                alert('Error sending message.');
+                alert('Error sending message: ' + data.error);
             }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('An error occurred while sending your message.');
         });
     });
 });
