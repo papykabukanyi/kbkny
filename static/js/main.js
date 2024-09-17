@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Fullpage.js
     new fullpage('#fullpage', {
         autoScrolling: true,
         scrollHorizontally: false, // Disabled horizontal scrolling
@@ -18,7 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Handle form submission
     const contactForm = document.getElementById('contactForm');
+    
     contactForm.addEventListener('submit', function (event) {
         event.preventDefault();  // Prevent the default form submission
 
@@ -34,7 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(jsonData),
         })
-        .then(response => response.json())
+        .then(response => {
+            // Check if response is not okay (not in 200 range)
+            if (!response.ok) {
+                return response.json().then(err => { throw new Error(err.error); });
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.success) {
                 alert('Message sent successfully!');
@@ -45,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch((error) => {
             console.error('Error:', error);
-            alert('An error occurred while sending your message.');
+            alert('An error occurred while sending your message: ' + error.message);
         });
     });
 });
